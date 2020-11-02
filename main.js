@@ -1,8 +1,15 @@
-class AddElement {
+class AddLiItem {
     constructor() {
-        const addLi = function() {
-            const ulPanel = document.querySelector('ul');
-            const liElement = document.createElement('li');
+        const addButton = document.querySelector("button");
+
+        const addItem = function() {
+            console.log('działa')
+
+            addButton.addEventListener("click", addItem);
         }
     }
 }
+
+
+
+
