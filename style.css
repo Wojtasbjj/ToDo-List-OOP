@@ -10,3 +10,14 @@ body {
 h1 {
     color: white;
 }
+
+#menu {
+    display: inline-flex;
+}
+
+ul {
+    background-color: white;
+    width: 300px;
+    margin: 20px auto;
+    border-radius: 10px;
+}
