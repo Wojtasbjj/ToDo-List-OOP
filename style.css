@@ -21,3 +21,14 @@ ul {
     margin: 20px auto;
     border-radius: 10px;
 }
+
+/* #doneBtn {
+    /* width: 7px; */
+    /* height: 5px; */
+ /* } */
+
+li {
+    list-style-type: none;
+    text-align: left;
+    padding-left: 10px;
+}
