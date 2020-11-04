@@ -12,6 +12,12 @@ addLi () {
         alert('Wprowadź text')
         return
     }
+    
+    if(this.myItems.includes(this.inputText.value)) {
+        alert('taki task już istnieje !')
+        return;
+    }
+
     this.myItems.push(this.inputText.value);
     console.log(this.myItems);
 
@@ -28,19 +34,7 @@ addLi () {
 }
 
 deleteLi () {
-    console.log('usuwa element z tablicy');
+    console.log(this.myItems);
 }
 }
 const liItem = new ItemList();
-
-
-
-
-
-// for (i=0; i<items.length; i++) {
-//     const liElement = document.createElement('li');
-//     liElement.textContent = items[i];
-//     ulElement.appendChild(liElement)
-//     console.log(liElement.textContent)
-// }
-
