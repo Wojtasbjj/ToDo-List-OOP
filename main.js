@@ -40,12 +40,12 @@ addLi () {
     }
     this.inputText.value = ""
 
-    document.querySelectorAll(`.doneBtn`).forEach(item => item.addEventListener('click', this.deleteLi.bind(this)));
+    document.querySelectorAll(`.doneBtn`).forEach(item => item.addEventListener('click', this.deleteLi));
 
 }
 
 deleteLi () {
-    console.log(`usuwanie elementu`)
+    console.log(`usuwanie elementu`);
 }
 }
 const liItem = new ItemList();
