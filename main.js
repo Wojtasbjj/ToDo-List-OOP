@@ -4,6 +4,7 @@ class ItemList {
         this.myItems = [];
         this.doneBtns = [];
         document.querySelector('button').addEventListener('click', this.addLi.bind(this));
+        document.getElementById('deleteBtn').addEventListener('click', this.deleteLi.bind(this));
         this.inputText = document.querySelector('input');
         this.ulElement = document.getElementById('liList')
         console.log('constraktor koniec');
@@ -46,7 +47,7 @@ addLi () {
 }
 
 deleteLi () {
-    console.log(this.doneBtn);
+    console.log('usuwanie tasków');
 }
 }
 const liItem = new ItemList();
