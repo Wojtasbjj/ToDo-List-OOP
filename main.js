@@ -25,27 +25,28 @@ addLi () {
     console.log(this.myItems);
 
     this.liElement = document.createElement('li');
-    this.doneBtn = document.createElement("button");
-    this.doneBtn.className = 'doneBtn';
+    this.doneChck = document.createElement("input");
+    this.doneChck.type = 'checkbox'
+    this.doneChck.className = 'doneChck';
 
     for (let i=0; i < this.myItems.length; i++) {
         console.log('uruchomienie petli')
         this.liElement.textContent = this.myItems[i];
         this.liElement.setAttribute('id', [i]);
-        this.doneBtn.setAttribute('id', [i])
-        this.doneBtn.textContent = 'done'
+        this.doneChck.setAttribute('id', [i])
+        this.doneChck.textContent = 'done'
         // this.liElement.innerHTML += `<button type="button" class="btn btn-primary" id="doneBtn" index="${i}">done</button>`
         this.ulElement.appendChild(this.liElement);
-        this.liElement.appendChild(this.doneBtn);
+        this.liElement.appendChild(this.doneChck);
     }
     this.inputText.value = ""
 
-    document.querySelectorAll(`.doneBtn`).forEach(item => item.addEventListener('click', this.deleteLi));
+    // document.querySelectorAll(`.doneBtn`).forEach(item => item.addEventListener('click', this.deleteLi));
 
 }
 
 deleteLi () {
-    console.log(`usuwanie elementu`);
+    console.log(this.doneBtn);
 }
 }
 const liItem = new ItemList();
