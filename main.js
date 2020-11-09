@@ -23,7 +23,7 @@ addLi () {
 
     this.myItems.push(this.inputText.value);
     this.doneBtns.push('przycisk');
-    console.log(this.myItems);
+    // console.log(this.myItems);
 
     this.liElement = document.createElement('li');
     this.doneChck = document.createElement("input");
@@ -31,7 +31,7 @@ addLi () {
     this.doneChck.className = 'doneChck';
 
     for (let i=0; i < this.myItems.length; i++) {
-        console.log('uruchomienie petli')
+        // console.log('uruchomienie petli')
         this.liElement.textContent = this.myItems[i];
         this.liElement.setAttribute('id', [i]);
         this.doneChck.setAttribute('id', [i])
@@ -42,12 +42,34 @@ addLi () {
     }
     this.inputText.value = ""
 
+    // if (this.doneChck.checked == true) {
+    //     console.log('allahuak bar')
+    // }
+
     // document.querySelectorAll(`.doneBtn`).forEach(item => item.addEventListener('click', this.deleteLi));
 
 }
 
 deleteLi () {
-    console.log('usuwanie tasków');
+
+    this.chckAll = [...document.querySelectorAll('.doneChck')];
+    
+    for(let i=0; i<this.chckAll.length; i++) {
+
+        if (this.chckAll[i].checked) {
+
+        for (let i=0; i<this.chckAll.length; i++) {
+            if (this.chckAll[i].checked == true) {
+                console.log(this.chckAll[i]);
+                let deleteItem = this.chckAll[i].id;
+                console.log(`id usunietego elementu to: ${deleteItem}`)
+                this.chckAll.splice(i, 1);
+                this.myItems.splice(i, 1);
+                this.ulElement.removeChild(this.ulElement.childNodes[i])
+            }
+        }
+    }
+    }
 }
 }
 const liItem = new ItemList();
