@@ -1,13 +1,10 @@
-
 class ItemList {
     constructor() {
-        this.myItems = [];
-        this.doneBtns = [];
+        this.myItems = ["asd", "123", "456", "wojtek", "masło"];
         document.querySelector('button').addEventListener('click', this.addLi.bind(this));
         document.getElementById('deleteBtn').addEventListener('click', this.deleteLi.bind(this));
         this.inputText = document.querySelector('input');
         this.ulElement = document.getElementById('liList')
-        console.log('constraktor koniec');
     }
 addLi () {
     if (this.inputText.value == "") {
@@ -22,41 +19,28 @@ addLi () {
     }
 
     this.myItems.push(this.inputText.value);
-    this.doneBtns.push('przycisk');
-    // console.log(this.myItems);
 
+    let index = 0;
     this.liElement = document.createElement('li');
     this.doneChck = document.createElement("input");
     this.doneChck.type = 'checkbox'
     this.doneChck.className = 'doneChck';
+    this.inputText.value = "";
 
-    for (let i=0; i < this.myItems.length; i++) {
-        // console.log('uruchomienie petli')
-        this.liElement.textContent = this.myItems[i];
-        this.liElement.setAttribute('id', [i]);
-        this.doneChck.setAttribute('id', [i])
-        this.doneChck.textContent = 'done'
-        // this.liElement.innerHTML += `<button type="button" class="btn btn-primary" id="doneBtn" index="${i}">done</button>`
+    this.myItems.forEach((toDoElement, index) => {
+        this.liElement.textContent = toDoElement;
         this.ulElement.appendChild(this.liElement);
         this.liElement.appendChild(this.doneChck);
-    }
-    this.inputText.value = ""
-
-    // if (this.doneChck.checked == true) {
-    //     console.log('allahuak bar')
-    // }
-
-    // document.querySelectorAll(`.doneBtn`).forEach(item => item.addEventListener('click', this.deleteLi));
-
+        this.liElement.setAttribute('id', [index])
+        this.doneChck.setAttribute('id', [index])
+       })
 }
 
 deleteLi () {
 
     this.chckAll = [...document.querySelectorAll('.doneChck')];
     
-    for(let i=0; i<this.chckAll.length; i++) {
-
-        if (this.chckAll[i].checked) {
+    for(let i=0; i<=this.chckAll.length; i++) {
 
         for (let i=0; i<this.chckAll.length; i++) {
             if (this.chckAll[i].checked == true) {
@@ -65,11 +49,26 @@ deleteLi () {
                 console.log(`id usunietego elementu to: ${deleteItem}`)
                 this.chckAll.splice(i, 1);
                 this.myItems.splice(i, 1);
-                this.ulElement.removeChild(this.ulElement.childNodes[i])
+                this.ulElement.removeChild(this.ulElement.childNodes[i]);
             }
         }
     }
-    }
+}
+
+renderUl () {
+
+    this.myItems.forEach((toDoElement, index) => {
+        this.liElement = document.createElement('li');
+        this.doneChck = document.createElement("input");
+        this.doneChck.type = 'checkbox'
+        this.doneChck.className = 'doneChck';
+        this.liElement.setAttribute('id', [index])
+        this.doneChck.setAttribute('id', [index])
+        this.liElement.textContent = toDoElement;
+        this.ulElement.appendChild(this.liElement);
+        this.liElement.appendChild(this.doneChck);
+       })
+
 }
 }
 const liItem = new ItemList();
