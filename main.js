@@ -8,10 +8,6 @@ class ItemList {
         this.myItemJson = JSON.stringify(this.myItems, null, 4);
     }
 
-save () {
-    console.log(this.myItemJson)
-}
-
 addLi () {
     if (this.inputText.value == "") {
         alert('Wprowadź text')
@@ -25,8 +21,6 @@ addLi () {
     }
 
     this.myItems.push(this.inputText.value);
-
-    let index = 0;
     this.liElement = document.createElement('li');
     this.doneChck = document.createElement("input");
     this.doneChck.type = 'checkbox'

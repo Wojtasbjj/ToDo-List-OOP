@@ -18,5 +18,27 @@
         <button type="button" class="btn btn-primary" id="deleteBtn">Delete</button>
     </container>
     <script src="main.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDHOTk4e-ttLRSj1Wt0Dj80rMB2ZE_JrZ0",
+    authDomain: "todolist-oop.firebaseapp.com",
+    databaseURL: "https://todolist-oop.firebaseio.com",
+    projectId: "todolist-oop",
+    storageBucket: "todolist-oop.appspot.com",
+    messagingSenderId: "297296744215",
+    appId: "1:297296744215:web:41c58cb0dbaaa78db3b152"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
 </body>
 </html>
