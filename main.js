@@ -1,11 +1,11 @@
 class ItemList {
     constructor() {
-        this.myItems = ["asd", "123", "456", "wojtek", "masło"];
+        this.myItems = ["task 1", "task 2", "task 3"];
         document.querySelector('button').addEventListener('click', this.addLi.bind(this));
         document.getElementById('deleteBtn').addEventListener('click', this.deleteLi.bind(this));
         this.inputText = document.querySelector('input');
         this.ulElement = document.getElementById('liList')
-        this.myItemJson = JSON.stringify(this.myItems, null, 4);
+        // this.myItemJson = JSON.stringify(this.myItems, null, 4);
     }
 
 addLi () {
@@ -19,6 +19,7 @@ addLi () {
         this.inputText.value = ""
         return;
     }
+
 
     this.myItems.push(this.inputText.value);
     this.liElement = document.createElement('li');
@@ -34,8 +35,17 @@ addLi () {
         this.liElement.setAttribute('id', [index])
         this.doneChck.setAttribute('id', [index])
        })
-       this.myItemJson = JSON.stringify(this.myItems, null, 4);
-       console.log(this.myItemJson);
+
+       firebase
+        .firestore()
+        .collection(`todo`)
+        .doc('toDoList')
+        .set({
+            todo: this.myItems
+        })
+
+    //    this.myItemJson = JSON.stringify(this.myItems, null, 4);
+    //    console.log(this.myItemJson);
 }
 
 deleteLi () {
@@ -55,6 +65,13 @@ deleteLi () {
             }
         }
     }
+    firebase
+        .firestore()
+        .collection(`todo`)
+        .doc('toDoList')
+        .set({
+            todo: this.myItems
+        })
 }
 
 renderUl () {
@@ -71,6 +88,30 @@ renderUl () {
         this.liElement.appendChild(this.doneChck);
        })
 
+    // firebase
+    //     .firestore()
+    //     .collection('todo')
+    //     get()
+    //     .then(this.renderUl)
+
+
+}
+
+showToDo () {
+    console.log('metoda showToDo')
+    console.log(firebase
+        .firestore()
+        .collection(`todo`)
+        .doc('toDoList'[1]))
+}
+
+getToDo () {
+        firebase
+        .firestore()
+        .collection(`todo`)
+        .doc('toDoList')
+        .get()
+        .then(this.showToDo)
 }
 
 }
