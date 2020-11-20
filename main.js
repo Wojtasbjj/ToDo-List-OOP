@@ -1,11 +1,12 @@
 class ItemList {
     constructor() {
-        this.myItems = ["task 1", "task 2", "task 3"];
+        this.myItems = [];
         document.querySelector('button').addEventListener('click', this.addLi.bind(this));
         document.getElementById('deleteBtn').addEventListener('click', this.deleteLi.bind(this));
         this.inputText = document.querySelector('input');
         this.ulElement = document.getElementById('liList')
         // this.myItemJson = JSON.stringify(this.myItems, null, 4);
+        
     }
 
 addLi () {
@@ -75,7 +76,8 @@ deleteLi () {
 }
 
 renderUl () {
-
+    console.log('wywołane z constructor')
+    console.log(this.myItems)
     this.myItems.forEach((toDoElement, index) => {
         this.liElement = document.createElement('li');
         this.doneChck = document.createElement("input");
@@ -87,12 +89,6 @@ renderUl () {
         this.ulElement.appendChild(this.liElement);
         this.liElement.appendChild(this.doneChck);
        })
-
-    // firebase
-    //     .firestore()
-    //     .collection('todo')
-    //     get()
-    //     .then(this.renderUl)
 
 
 }
@@ -106,15 +102,27 @@ showToDo () {
 }
 
 getToDo () {
+        
         firebase
         .firestore()
         .collection(`todo`)
         .doc('toDoList')
         .get()
-        .then(this.showToDo)
+        .then((doc) => {
+            console.log(doc.data())
+            let toDoList = doc.data();
+            console.log(toDoList.todo);
+            this.myItems = toDoList.todo;
+        })
 }
+
+// inicialRefresh () {
+//     this.getToDo();
+
+// }
 
 }
 const liItem = new ItemList();
-liItem.renderUl()
+liItem.getToDo();
+liItem.renderUl();
 
