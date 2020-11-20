@@ -5,7 +5,13 @@ class ItemList {
         document.getElementById('deleteBtn').addEventListener('click', this.deleteLi.bind(this));
         this.inputText = document.querySelector('input');
         this.ulElement = document.getElementById('liList')
+        this.myItemJson = JSON.stringify(this.myItems, null, 4);
     }
+
+save () {
+    console.log(this.myItemJson)
+}
+
 addLi () {
     if (this.inputText.value == "") {
         alert('Wprowadź text')
@@ -34,6 +40,8 @@ addLi () {
         this.liElement.setAttribute('id', [index])
         this.doneChck.setAttribute('id', [index])
        })
+       this.myItemJson = JSON.stringify(this.myItems, null, 4);
+       console.log(this.myItemJson);
 }
 
 deleteLi () {
@@ -70,5 +78,8 @@ renderUl () {
        })
 
 }
+
 }
 const liItem = new ItemList();
+liItem.renderUl()
+
