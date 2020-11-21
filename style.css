@@ -8,24 +8,43 @@ body {
 }
 
 #header {
-
+    justify-content: center;
 }
 h1 {
     color: white;
+    padding-left: 20px;
+    font-weight: bold;
+
 }
 
 #tittle {
-    height: 50px;
-    background-color: #3e103f;
+    height: 70px;
+    background-color: #2f0c30;
 }
 
 #userMenu { 
-    height: 1200px;
+    height: 100vh;
     background-color: #3e103f;
 }
 
 #toDoInput {
     width: 400px;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+#addBtn {
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+#deleteBtn {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+ul {
+    margin: 0 auto;
 }
 
 #toDoElements {
@@ -33,11 +52,14 @@ h1 {
 }
 
 li {
+    margin-top: 20px;
     list-style: none;
+    width: 800px;
+    height: 50px;
+    background-color: #f5f5f5;
+    font-size: 6mm;
+    font-weight: bold;
 }
-
-
-
 
 .doneChck {
     margin-left: 10px;
