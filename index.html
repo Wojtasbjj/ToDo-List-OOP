@@ -8,15 +8,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <container>
-        <h1>ToDo</h1>
-        <panel id="menu">
-            <input type="text" class="form-control" id="toDoInput" placeholder="Add a Todo">
+  <div class="container">
+    <div class="row">
+      NAGŁÓWEK
+    </div>
+    <div class="row">
+      <div class="col">
+          USER MENU
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" id="toDoInput" placeholder="Add a Todo">
             <button type="button" class="btn btn-primary">Add</button>
-        </panel>
-        <ul id="liList"></ul>
-        <button type="button" class="btn btn-primary" id="deleteBtn">Delete</button>
-    </container>
+            <button type="button" class="btn btn-primary" id="deleteBtn">Delete</button>
+            <div class="row">
+              <ul id="liList"></ul>
+            </div>
+      </div>
+    </div>
+  </div>
     
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->

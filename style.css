@@ -4,33 +4,8 @@
 }
 body {
     background-color: red;
-    text-align: center;
 }
 
-h1 {
-    color: white;
-}
-
-#menu {
-    display: inline-flex;
-}
-
-ul {
-    background-color: white;
-    width: 300px;
-    margin: 20px auto;
-    border-radius: 10px;
-}
-
-/* #doneBtn {
-    margin-left: 10px;
- } */
-
-li {
-    list-style-type: none;
-    text-align: left;
-    padding-left: 10px;
-}
 
 .doneChck {
     margin-left: 10px;

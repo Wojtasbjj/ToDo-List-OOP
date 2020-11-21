@@ -81,7 +81,6 @@ deleteLi () {
 }
 
 renderUl () {
-    console.log('wywołane z constructor')
     console.log(this.myItems)
     this.myItems.forEach((toDoElement, index) => {
         this.liElement = document.createElement('li');
