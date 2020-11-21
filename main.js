@@ -1,12 +1,17 @@
 class ItemList {
     constructor() {
-        this.myItems = [];
+        // this.myItems = [];
+        this.init();
         document.querySelector('button').addEventListener('click', this.addLi.bind(this));
         document.getElementById('deleteBtn').addEventListener('click', this.deleteLi.bind(this));
         this.inputText = document.querySelector('input');
         this.ulElement = document.getElementById('liList')
-        // this.myItemJson = JSON.stringify(this.myItems, null, 4);
         
+    }
+
+    init() {
+        console.log("this shit happened in init")
+        this.getToDo()
     }
 
 addLi () {
@@ -105,24 +110,19 @@ getToDo () {
         
         firebase
         .firestore()
-        .collection(`todo`)
+        .collection('todo')
         .doc('toDoList')
         .get()
         .then((doc) => {
-            console.log(doc.data())
-            let toDoList = doc.data();
-            console.log(toDoList.todo);
-            this.myItems = toDoList.todo;
+            this.myItems = [...doc.data().todo]
+            this.renderUl()
         })
 }
 
-// inicialRefresh () {
-//     this.getToDo();
 
-// }
 
 }
 const liItem = new ItemList();
-liItem.getToDo();
-liItem.renderUl();
+// liItem.getToDo();
+// liItem.renderUl();
 
