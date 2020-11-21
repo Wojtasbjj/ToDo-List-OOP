@@ -8,15 +8,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
     <div class="row">
-      NAGŁÓWEK
-    </div>
-    <div class="row">
-      <div class="col">
-          USER MENU
+      <div class="col-lg-2" id="userMenu">
+        USERMENU
       </div>
-      <div class="col">
+      <div class="col-lg-10" id="header">
+        <div class="row" id="tittle">
+          <h1>ToDoList</h1>
+        </div>
+        <div class="row">
+          <input type="text" class="form-control" id="toDoInput" placeholder="Add a Todo">
+            <button type="button" class="btn btn-primary">Add</button>
+        </div>
+        <div class="row">
+          <ul id="liList">
+        </ul></div>
+        <div class="row">
+          <button type="button" class="btn btn-primary" id="deleteBtn">Delete</button>
+        </div>
+      </div>
+  </div>
+</div>
+    <!-- <div class="row" id="menu">
+      <div class="col-lg-10">
         <input type="text" class="form-control" id="toDoInput" placeholder="Add a Todo">
             <button type="button" class="btn btn-primary">Add</button>
             <button type="button" class="btn btn-primary" id="deleteBtn">Delete</button>
@@ -24,8 +38,7 @@
               <ul id="liList"></ul>
             </div>
       </div>
-    </div>
-  </div>
+    </div> -->
     
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
